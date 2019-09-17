@@ -15,6 +15,12 @@ Box::Box(const int& width, const int& height) :
 	_fill(true)
 	{};
 
+Box::Box(const int& width, const int& height, const bool& fill) :
+	_height(height),
+	_width(width),
+	_fill(fill)
+{};
+
 //Getter and Setter functions
 int const Box::getHeight() {
 	return _height;
@@ -36,7 +42,7 @@ void Box::setFill(bool & fill) {
 }
 
 int main() {
-
+	Box b;
 	cout << b.getHeight() << " " << b.getWidth() << " " << b.getFill();
 	return 0;
 }
