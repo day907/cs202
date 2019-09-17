@@ -3,6 +3,7 @@
 
 class Box {
 public:
+	Box();
 	int const getHeight();
 	void setHeight(int&);
 	int const getWidth();

@@ -1,5 +1,11 @@
 #include "box.hpp"
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
 
+//Constructors
+Box::Box(): _height(0), _width(0), _fill(true) {};
 
 //Getter and Setter functions
 int const Box::getHeight() {
@@ -19,4 +25,8 @@ bool const Box::getFill() {
 }
 void Box::setFill(bool & fill) {
 	_fill = fill;
+}
+
+int main() {
+	return 0;
 }
