@@ -6,6 +6,7 @@ public:
 	Box();
 	Box(const int&, const int&);
 	Box(const int&, const int&, const bool&);
+	void print(/*ostream*/);
 	int const getHeight();
 	void setHeight(int&);
 	int const getWidth();
