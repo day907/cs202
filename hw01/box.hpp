@@ -3,12 +3,12 @@
 
 class Box {
 public:
-	int getHeight();
-	void setHeight(int);
-	int getWidth();
-	void setWidth(int);
-	bool getFill();
-	void setFill(bool);
+	int const getHeight();
+	void setHeight(int&);
+	int const getWidth();
+	void setWidth(int&);
+	bool const getFill();
+	void setFill(bool&);
 private:
 	int _height;
 	int _width;
