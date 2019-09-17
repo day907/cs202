@@ -5,7 +5,15 @@ using std::cin;
 using std::endl;
 
 //Constructors
-Box::Box(): _height(0), _width(0), _fill(true) {};
+Box::Box(): _height(1), _width(1), _fill(true) {
+	cout << "default constructor" << endl;
+};
+
+Box::Box(const int& width, const int& height) :
+	_height(height),
+	_width(width),
+	_fill(true)
+	{};
 
 //Getter and Setter functions
 int const Box::getHeight() {
@@ -28,5 +36,7 @@ void Box::setFill(bool & fill) {
 }
 
 int main() {
+
+	cout << b.getHeight() << " " << b.getWidth() << " " << b.getFill();
 	return 0;
 }
