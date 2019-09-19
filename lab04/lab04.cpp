@@ -38,6 +38,7 @@ int main() {
 	int nCopies;
 	string copyLine;
 
+	//retrieves integer input
 	while (true) {
 		//prompt
 		cout << "Input positive integer: ";
@@ -50,8 +51,14 @@ int main() {
 			cout << "Improper input, try again" << endl;
 			continue;
 		}
-
-
+		cin.clear();
+		cin.ignore(999, '\n');
+		break;
 	}
+
+	//retrieves string input
+	cout << "Input a line of text: ";
+	getline(cin, copyLine);
+
 	return 0;
 }
