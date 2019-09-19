@@ -60,5 +60,11 @@ int main() {
 	cout << "Input a line of text: ";
 	getline(cin, copyLine);
 
+	//3.
+	ofstream ofile("output.txt", std::ios::app);
+	for (int i = 0; i < nCopies; i++) {
+		ofile << copyLine << '\n';
+	}
+
 	return 0;
 }
