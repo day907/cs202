@@ -17,6 +17,22 @@ using std::ofstream;
 using std::ifstream;
 
 int main() {
+	string inString;
+	ifstream fileIn("test.txt");
+
+	//Checks if file was found
+	if (!fileIn) {
+		cout << "file did not open" << endl;
+	}
+
+	while (fileIn) {
+		if (fileIn.eof()) {
+			cout << "end of file";
+			break;
+		}
+		getline(fileIn, inString);
+		cout << inString << endl;
+	}
 
 	return 0;
 }
