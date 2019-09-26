@@ -5,21 +5,22 @@ using std::ostream;
 using std::string;
 
 //Constructors
+//Default constructor
 Box::Box(): _height(1), _width(1), _fill(true) {};
-
+//Constructor with width and height
 Box::Box(const int& width, const int& height) :
 	_height(height),
 	_width(width),
 	_fill(true)
-	{};
-
+{};
+//Constructor with width, height, and fill
 Box::Box(const int& width, const int& height, const bool& fill) :
 	_height(height),
 	_width(width),
 	_fill(fill)
 {};
 
-//Getter and Setter functions
+//Getter and Setter member functions
 int Box::getHeight() const {
 	return _height;
 }
@@ -32,15 +33,14 @@ int Box::getWidth() const {
 void Box::setWidth(int width) {
 	_width = width;
 }
-//type function
+//Type function
 string Box::type() const {
 	if (_fill) {
 		return "Filled";
 	}
 	return "Hollow";
 }
-
-////Utility functions
+//Print function
 void Box::print(ostream & os) const {
 
 	//loops for each unit of height

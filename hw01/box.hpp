@@ -18,7 +18,7 @@ public:
 private:
 	int _height;
 	int _width;
-	bool _fill;
+	const bool _fill;
 };
 
 #endif
