@@ -33,7 +33,9 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 //type function
-
+string Box::type() const {
+	return "";
+}
 
 ////Utility functions
 void Box::print(ostream & os) const {
