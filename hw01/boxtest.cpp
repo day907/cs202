@@ -621,42 +621,42 @@ void test_class_Box_print(Tester& t)
 	Box con1;
 
 	//// Check print #1
-	//con1.print(os);
+	con1.print(os);
 
 	//t.test(os.str() == "x\n", "print, default box");
 
-	//// Test #2 (const)
-	//const Box con2(4, 3);
+	// Test #2 (const)
+	const Box con2(4, 3);
 
-	//// Check print #2
-	//os.str(""); //reset output holder
-	//con2.print(os);
-	//t.test(os.str() == "xxxx\nxxxx\nxxxx\n", "print 4x3 box, const");
+	// Check print #2
+	os.str(""); //reset output holder
+	con2.print(os);
+	t.test(os.str() == "xxxx\nxxxx\nxxxx\n", "print 4x3 box, const");
 
-	//// Test #3 (1x1 hollow)
-	//Box con3(1, 1, false);
+	// Test #3 (1x1 hollow)
+	Box con3(1, 1, false);
 
-	//// Check print #3
-	//os.str(""); //reset output holder
-	//con3.print(os);
-	//t.test(os.str() == "x\n", "print 1x1 hollow box");
+	// Check print #3
+	os.str(""); //reset output holder
+	con3.print(os);
+	t.test(os.str() == "x\n", "print 1x1 hollow box");
 
-	//// Test #4 (2x2 hollow)
-	//Box con4(2, 2, false);
+	// Test #4 (2x2 hollow)
+	Box con4(2, 2, false);
 
-	//// Check print #4
-	//os.str(""); //reset output holder
-	//con4.print(os);
-	//t.test(os.str() == "xx\nxx\n", "print 2x2 hollow box");
+	// Check print #4
+	os.str(""); //reset output holder
+	con4.print(os);
+	t.test(os.str() == "xx\nxx\n", "print 2x2 hollow box");
 
-	//// Test #5 (8x3 hollow)
-	//con4.setWidth(8);
-	//con4.setHeight(3);
+	// Test #5 (8x3 hollow)
+	con4.setWidth(8);
+	con4.setHeight(3);
 
-	//// Check print #5
-	//os.str(""); //reset output holder
-	//con4.print(os);
-	//t.test(os.str() == "xxxxxxxx\nx      x\nxxxxxxxx\n", "print 8x3 hollow box");
+	// Check print #5
+	os.str(""); //reset output holder
+	con4.print(os);
+	t.test(os.str() == "xxxxxxxx\nx      x\nxxxxxxxx\n", "print 8x3 hollow box");
 }
 
 
