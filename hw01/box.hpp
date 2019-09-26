@@ -6,13 +6,13 @@ public:
 	Box();
 	Box(const int&, const int&);
 	Box(const int&, const int&, const bool&);
-	void print(/*ostream*/);
-	int const getHeight();
-	void setHeight(int&);
-	int const getWidth();
-	void setWidth(int&);
-	bool const getFill();
-	void setFill(bool&);
+
+//	void print(ostringstream & os);
+	int getHeight() const;
+	void setHeight(int);
+	int getWidth() const;
+	void setWidth(int);
+
 private:
 	int _height;
 	int _width;
