@@ -34,7 +34,10 @@ void Box::setWidth(int width) {
 }
 //type function
 string Box::type() const {
-	return "";
+	if (_fill) {
+		return "Filled";
+	}
+	return "Hollow";
 }
 
 ////Utility functions
