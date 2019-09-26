@@ -1,3 +1,10 @@
+//CS202
+//Jordan Day
+//09/26/19
+//HW01
+//"box.hpp"
+//Header file for HW01, contains class Box declarations
+
 #ifndef BOX_HPP
 #define BOX_HPP
 #include <iostream>

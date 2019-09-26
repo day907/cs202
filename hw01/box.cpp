@@ -1,3 +1,11 @@
+//CS202
+//Jordan Day
+//09/26/19
+//HW01
+//"box.cpp"
+//Contains constructors and member functions for class Box
+//for use in HW01
+
 #include "box.hpp"
 #include <iostream>
 using std::ostream;
