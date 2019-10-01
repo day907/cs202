@@ -7,6 +7,6 @@ using std::string;
 using std::istream;
 using std::ostream;
 
-int getIdFromFile(const string&, const istream&, ostream&);
+int getIdFromFile(const string&, istream&, ostream&);
 
 #endif
