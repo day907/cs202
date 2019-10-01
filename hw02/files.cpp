@@ -7,18 +7,23 @@ using std::ostream;
 using std::ifstream;
 using std::cout;
 using std::cin;
+using std::getline;
+using std::endl;
 
 int getIdFromFile(const string & fileName,
-	const istream & instream, ostream & outstream) {
-	
+		const istream & instream, ostream & outstream) {
+	string theline;
 	ifstream theFile;
 	theFile.open(fileName);
 
-	if (theFile) {
-		outstream << "File opened";
-	}
-	else if (!theFile) {
-		outstream << "File did not open";
+	while (true) {
+		getline(theFile, theline);
+		if (!theFile) {
+			if (theFile.eof()) {
+				break;
+			}
+		}
+		outstream << theline << endl; //for testing
 	}
 
 	theFile.close();
@@ -26,6 +31,6 @@ int getIdFromFile(const string & fileName,
 }
 
 int main() {
-	getIdFromFile("test.txt", cin, cout);
+	getIdFromFile("test.txt", cin, cout); //for testing
 	return 0;
 }
