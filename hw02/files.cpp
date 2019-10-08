@@ -49,5 +49,11 @@ int getIdFromFile(const string & fileName,
 }
 
 void numberChase(const string& filename, ostream& output) {
+	ifstream thefile(filename, std::ios::binary);
+	if (!thefile) return;
 
+
+
+	thefile.close();
+	return;
 }
