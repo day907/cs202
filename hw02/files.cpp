@@ -17,10 +17,10 @@ int getIdFromFile(const string & fileName,
 	string theline, username;
 	int id;
 	ifstream thefile;
+	thefile.open(fileName);
+	if (!thefile) return -1; //returns -1 if file didn't open
 
 	while (true) {
-		thefile.open(fileName);
-		if (!thefile) return -1; //returns -1 if file didn't open
 
 		//Retrieves username input, exits loop if no input found
 		instream >> username;
@@ -28,7 +28,7 @@ int getIdFromFile(const string & fileName,
 			thefile.close();
 			break;
 		}
-
+		thefile.seekg(0);
 		//sequential search through formatted unsorted file
 		while (true) {
 			getline(thefile, theline);
@@ -49,8 +49,8 @@ int getIdFromFile(const string & fileName,
 				break;
 			}
 		}
-		thefile.close();
 	}
+	thefile.close();
 	return 0;
 }
 
