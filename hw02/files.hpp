@@ -8,5 +8,6 @@ using std::istream;
 using std::ostream;
 
 int getIdFromFile(const string&, istream&, ostream&);
+void numberChase(const string&, ostream&);
 
 #endif

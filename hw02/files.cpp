@@ -18,9 +18,12 @@ int getIdFromFile(const string & fileName,
 	theFile.open(fileName);
 	if (!theFile) return -1; //returns -1 if file didn't open
 
-	//while (true) {//repeatedly
+	while (true) {//repeatedly
 		//get username input from instream
-	//	instream >> username;
+		instream >> username;
+		if (!instream) {
+			break;
+		}
 
 		//sequential search through formatted unsorted file
 		while (true) {
@@ -35,16 +38,16 @@ int getIdFromFile(const string & fileName,
 				}
 			}
 
+
+
 			//TODO check for matching username, get id from line
 			outstream << theline << endl; //for testing
 		}
-		//TODO stop once istream reaches eof
-	//}
+	}
 	theFile.close();
 	return 0;
 }
 
-int main() {
-	getIdFromFile("test.txt", cin, cout); //for testing
-	return 0;
+void numberChase(const string& filename, ostream& output) {
+
 }

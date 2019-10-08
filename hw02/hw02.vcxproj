@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="files.cpp" />
+    <ClCompile Include="filestest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="files.hpp" />
