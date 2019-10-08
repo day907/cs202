@@ -15,25 +15,27 @@ using std::istringstream;
 int getIdFromFile(const string & fileName,
 		istream & instream, ostream & outstream) {
 	string theline, username;
-	int id=12;
+	int id;
 	ifstream thefile;
-	thefile.open(fileName);
-	if (!thefile) return -1; //returns -1 if file didn't open
-
 
 	while (true) {
+		thefile.open(fileName);
+		if (!thefile) return -1; //returns -1 if file didn't open
+
+		//Retrieves username input, exits loop if no input found
 		instream >> username;
 		if (!instream) {
+			thefile.close();
 			break;
 		}
 
 		//sequential search through formatted unsorted file
 		while (true) {
-			//getline might not be ideal for this
 			getline(thefile, theline);
 			//outputs error if username not found
 			if (!thefile) {
 				if (thefile.eof()) {
+					thefile.clear();
 					outstream << "error" << endl;
 					break;
 				}
@@ -43,13 +45,12 @@ int getIdFromFile(const string & fileName,
 			if(theline.substr(0, username.length()) == username) {
 				istringstream isstr(theline.substr(username.length()), theline.length());
 				isstr >> id;
-				outstream << id << endl;
+				if (isstr) outstream << id << endl;
 				break;
 			}
-
 		}
+		thefile.close();
 	}
-	thefile.close();
 	return 0;
 }
 
