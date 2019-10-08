@@ -49,11 +49,24 @@ int getIdFromFile(const string & fileName,
 }
 
 void numberChase(const string& filename, ostream& output) {
-	ifstream thefile(filename, std::ios::binary);
+	ifstream thefile;
+	thefile.open(filename, std::ios::binary);
 	if (!thefile) return;
+	int currentvalue=0;
 
-
+	//search loop
+	while (currentvalue >=0) {
+		thefile.seekg(currentvalue*sizeof(int));
+		thefile.read(reinterpret_cast<char*>(&currentvalue), sizeof(int));
+		output << currentvalue << "\n";
+	}
 
 	thefile.close();
 	return;
 }
+
+/*		if (thefile.eof()) {
+thefile.clear();
+thefile.seekg(0);
+continue;
+		}*/
