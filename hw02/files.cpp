@@ -1,3 +1,8 @@
+//Jordan Day
+//10/08/19
+//CS202
+//Homework 2
+
 #include <string>
 using std::string;
 #include <iostream>
@@ -40,6 +45,9 @@ int getIdFromFile(const string & fileName,
 					break;
 				}
 			}
+
+			//takes username token from theline and compares it to username
+			//then truncates the username and sends the id to outstream
 			istringstream isstr1(theline);
 			isstr1 >> testname;
 			if(testname == username) {
