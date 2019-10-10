@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="box.cpp" />
+    <ClCompile Include="boxtest2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.hpp" />
