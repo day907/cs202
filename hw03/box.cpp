@@ -80,6 +80,7 @@ void Box::print(ostream& os) const {
 				else {
 					os << ' ';
 				}
+				continue;
 			}
 
 			//Prints filled or hollow box
