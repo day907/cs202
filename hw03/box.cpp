@@ -56,8 +56,8 @@ void Box::setWidth(int width) {
 //Type function
 string Box::type() const {
 	if (_layout == FILLED) return "Filled";
-	else if (_layout == HOLLOW) return "HOLLOW";
-	else if (_layout == CHECKERED) return "CHECKERED";
+	else if (_layout == HOLLOW) return "Hollow";
+	else if (_layout == CHECKERED) return "Checkered";
 	return "error";
 }
 //Print function
