@@ -19,6 +19,8 @@ public:
 	Box();
 	Box(const int&, const int&);
 	Box(const int&, const int&, const layout&);
+	Box(const Box&);
+	~Box();
 	void print(ostream&) const;
 	string type() const;
 	int getHeight() const;

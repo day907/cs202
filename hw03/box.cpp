@@ -21,18 +21,24 @@ Box::Box() : _height(1), _width(1), _layout(FILLED) { _currentboxes++; };
 Box::Box(const int& width, const int& height) :
 	_height(height),
 	_width(width),
-	_layout(FILLED)
-{
+	_layout(FILLED) {
 	_currentboxes++; 
 };
 //Constructor with width, height, and fill
 Box::Box(const int& width, const int& height, const layout& layout) :
 	_height(height),
 	_width(width),
-	_layout(layout)
-{
+	_layout(layout) {
 	_currentboxes++;
 };
+Box::Box(const Box& cBox) :
+	_height(cBox._height),
+	_width(cBox._width),
+	_layout(cBox._layout) {
+	_currentboxes++;
+}
+//Destructor
+Box::~Box() { _currentboxes--; };
 
 //Getter and Setter member functions
 int Box::getHeight() const {
@@ -52,6 +58,7 @@ string Box::type() const {
 	if (_layout == FILLED) return "Filled";
 	else if (_layout == HOLLOW) return "HOLLOW";
 	else if (_layout == CHECKERED) return "CHECKERED";
+	return "error";
 }
 //Print function
 void Box::print(ostream& os) const {
