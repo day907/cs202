@@ -12,6 +12,7 @@ using std::ostream;
 #include <string>
 using std::string;
 
+
 class Box {
 public:
 	enum layout { FILLED, HOLLOW, CHECKERED };
@@ -24,10 +25,12 @@ public:
 	void setHeight(int);
 	int getWidth() const;
 	void setWidth(int);
+	static int howMany();
 private:
 	int _height;
 	int _width;
 	layout _layout;
+	static int _currentboxes;
 };
 
 #endif

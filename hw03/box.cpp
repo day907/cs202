@@ -12,21 +12,27 @@ using std::ostream;
 #include <string>
 using std::string;
 
+static int _currentboxes = 0;
+
 //Constructors
 //Default constructor
-Box::Box() : _height(1), _width(1), _layout(FILLED) {};
+Box::Box() : _height(1), _width(1), _layout(FILLED) { _currentboxes++; };
 //Constructor with width and height
 Box::Box(const int& width, const int& height) :
 	_height(height),
 	_width(width),
 	_layout(FILLED)
-{};
+{
+	_currentboxes++; 
+};
 //Constructor with width, height, and fill
 Box::Box(const int& width, const int& height, const layout& layout) :
 	_height(height),
 	_width(width),
 	_layout(layout)
-{};
+{
+	_currentboxes++;
+};
 
 //Getter and Setter member functions
 int Box::getHeight() const {
@@ -67,4 +73,8 @@ void Box::print(ostream& os) const {
 		os << "\n";
 	}
 	return;
+}
+
+int Box::howMany() {
+	return _currentboxes;
 }
