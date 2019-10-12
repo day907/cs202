@@ -61,16 +61,29 @@ string Box::type() const {
 	return "error";
 }
 //Print function
+//I just use one loop that tests the layout every loop
+//seemed to involve the simplest code, but would it
+//have been better to test layout once and write two / three
+//seperate loops?
 void Box::print(ostream& os) const {
-
+	//Loop to print all boxes
 	//loops for each unit of height
 	for (int j = 0; j < _height; j++) {
 
 		//loops for each unit of width
 		for (int i = 0; i < _width; i++) {
-			//checks if X should be printed
-			//CHANGE LAYOUT CHECK
-			if (_layout || i == 0 || i == _width - 1 || j == 0 || j == _height - 1) {
+			//Prints checkered box
+			if (_layout == CHECKERED) {
+				if ((i + j) % 2 == 0) {
+					os << 'x';
+				}
+				else {
+					os << ' ';
+				}
+			}
+
+			//Prints filled or hollow box
+			if (_layout==FILLED || i == 0 || i == _width - 1 || j == 0 || j == _height - 1) {
 				os << 'x';
 			}
 			else {
