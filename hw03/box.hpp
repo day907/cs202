@@ -11,11 +11,13 @@
 using std::ostream;
 #include <string>
 using std::string;
+
 class Box {
 public:
+	enum layout { FILLED, HOLLOW, CHECKERED };
 	Box();
 	Box(const int&, const int&);
-	Box(const int&, const int&, const bool&);
+	Box(const int&, const int&, const layout&);
 	void print(ostream&) const;
 	string type() const;
 	int getHeight() const;
@@ -25,7 +27,7 @@ public:
 private:
 	int _height;
 	int _width;
-	const bool _fill;
+	layout _layout;
 };
 
 #endif

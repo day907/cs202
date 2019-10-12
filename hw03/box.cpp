@@ -14,18 +14,18 @@ using std::string;
 
 //Constructors
 //Default constructor
-Box::Box() : _height(1), _width(1), _fill(true) {};
+Box::Box() : _height(1), _width(1), _layout(FILLED) {};
 //Constructor with width and height
 Box::Box(const int& width, const int& height) :
 	_height(height),
 	_width(width),
-	_fill(true)
+	_layout(FILLED)
 {};
 //Constructor with width, height, and fill
-Box::Box(const int& width, const int& height, const bool& fill) :
+Box::Box(const int& width, const int& height, const layout& layout) :
 	_height(height),
 	_width(width),
-	_fill(fill)
+	_layout(layout)
 {};
 
 //Getter and Setter member functions
@@ -43,10 +43,9 @@ void Box::setWidth(int width) {
 }
 //Type function
 string Box::type() const {
-	if (_fill) {
-		return "Filled";
-	}
-	return "Hollow";
+	if (_layout == FILLED) return "Filled";
+	else if (_layout == HOLLOW) return "HOLLOW";
+	else if (_layout == CHECKERED) return "CHECKERED";
 }
 //Print function
 void Box::print(ostream& os) const {
@@ -57,7 +56,8 @@ void Box::print(ostream& os) const {
 		//loops for each unit of width
 		for (int i = 0; i < _width; i++) {
 			//checks if X should be printed
-			if (_fill || i == 0 || i == _width - 1 || j == 0 || j == _height - 1) {
+			//CHANGE LAYOUT CHECK
+			if (_layout || i == 0 || i == _width - 1 || j == 0 || j == _height - 1) {
 				os << 'x';
 			}
 			else {
