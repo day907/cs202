@@ -12,7 +12,11 @@ using std::ostream;
 #include <string>
 using std::string;
 
-
+//To add or remove a layout type to enum layout,
+//modifications are needed in Box::type(),
+//and Box::print(). If removing FILLED layout,
+//modifications needed in Box() default constructor,
+//and Box(const int&, const int&) constructor.
 class Box {
 public:
 	enum layout { FILLED, HOLLOW, CHECKERED };
