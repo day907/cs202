@@ -12,7 +12,7 @@ using std::ostream;
 #include <string>
 using std::string;
 
-static int _currentboxes = 0;
+int Box::_currentboxes = 0;
 
 //Constructors
 //Default constructor
@@ -93,6 +93,11 @@ void Box::print(ostream& os) const {
 		os << "\n";
 	}
 	return;
+}
+
+ostream& operator<<(ostream& os, const Box& theBox) {
+	theBox.print(os);
+	return os;
 }
 
 int Box::howMany() {

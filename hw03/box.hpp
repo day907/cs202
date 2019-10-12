@@ -35,4 +35,6 @@ private:
 	static int _currentboxes;
 };
 
+ostream& operator<<(ostream&, const Box&);
+
 #endif
