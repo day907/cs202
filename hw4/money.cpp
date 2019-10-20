@@ -13,10 +13,32 @@ Money::Money(const double dvalue) :
 
 
 int Money::roundCents(int cents) {
-	//TODO
-	return 0;
+	while (cents >= 100) {
+		if (cents % 10 >= 5) {
+			cents = (cents / 10) + 1;
+		}
+		else {
+			cents /= 10;
+		}
+	}
+	return cents;
 }
+
 int Money::roundCents(double dcents) {
-	//TRUNCATES CENTS, BUT  STILL NEEDS ROUNDING
+	//if cents round up, returns truncated cents +1.
+	//otherwise returns truncated cents
+	if ((int)(dcents * 1000) % 10 >= 5) {
+		return (((int)(dcents * 100)) % 100) + 1;
+	}
 	return ((int)(dcents * 100))%100;
+}
+
+void Money::printMoney() {
+	cout << _value;
+}
+
+int main() {
+	Money money1(45.678);
+	money1.printMoney();
+	return 0;
 }
