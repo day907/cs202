@@ -13,9 +13,12 @@ Money::Money(const double dvalue) :
 
 
 int Money::roundCents(int cents) {
-	while (cents >= 100) {
+	while (abs(cents) >= 100) {
 		if (cents % 10 >= 5) {
 			cents = (cents / 10) + 1;
+		}
+		else if (cents % 10 <= -5) {
+			cents = (cents / 10) - 1;
 		}
 		else {
 			cents /= 10;
@@ -30,6 +33,9 @@ int Money::roundCents(double dcents) {
 	if ((int)(dcents * 1000) % 10 >= 5) {
 		return (((int)(dcents * 100)) % 100) + 1;
 	}
+	if ((int)(dcents * 1000) % 10 <= -5) {
+		return (((int)(dcents * 100) % 100) - 1);
+	}
 	return ((int)(dcents * 100))%100;
 }
 
@@ -38,7 +44,7 @@ void Money::printMoney() {
 }
 
 int main() {
-	Money money1(45.678);
+	Money money1(-45.672);
 	money1.printMoney();
 	return 0;
 }
