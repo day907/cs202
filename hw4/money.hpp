@@ -8,7 +8,6 @@ public:
 	Money();
 	Money(const int, const int);
 	Money(const double);
-	void printMoney();
 	int getValue() const;
 private:
 	int roundCents(double);

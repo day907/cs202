@@ -57,11 +57,6 @@ ostream& operator<<(ostream& ost, const Money& mon) {
 	return ost;
 }
 
-void Money::printMoney() {
-	cout << _value;
-}
-
-
 int main() {
 	Money money1(45.678);
 	cout << money1;
