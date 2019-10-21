@@ -9,6 +9,7 @@ public:
 	Money(const int, const int);
 	Money(const double);
 	int getValue() const;
+	void setValue(int);
 private:
 	int roundCents(double);
 	int roundCents(int);

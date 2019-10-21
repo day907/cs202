@@ -45,6 +45,10 @@ int Money::roundCents(double dcents) {
 int Money::getValue() const {
 	return _value;
 }
+void Money::setValue(int value) {
+	_value = value;
+	return;
+}
 
 bool operator==(const Money& mon1, const Money& mon2) {
 	return (mon1._value == mon2._value);
@@ -52,13 +56,24 @@ bool operator==(const Money& mon1, const Money& mon2) {
 bool operator!=(const Money& mon1, const Money& mon2) {
 	return (!(mon1 == mon2));
 }
+
+//Formats Money _value into appropriate form and inserts to ostream
+///Potential issue with 0 cent value not having two zeroes
 ostream& operator<<(ostream& ost, const Money& mon) {
-	ost << '$' << (mon.getValue()) / 100 << '.' << abs(mon.getValue() % 100);
+	if (mon.getValue() >= 0) {
+		ost << '$' << (mon.getValue()) / 100 << '.' << abs(mon.getValue() % 100);
+	}
+	else {
+		ost << "-$" << abs(mon.getValue() / 100) << '.' << abs(mon.getValue() % 100);
+	}
 	return ost;
 }
 
 int main() {
-	Money money1(45.678);
-	cout << money1;
+	Money money1(-2.00);
+	while (money1.getValue() <= 200) {
+		money1.setValue(money1.getValue() + 1);
+		cout << money1 << endl;
+	}
 	return 0;
 }
