@@ -37,10 +37,10 @@ int Money::roundCents(int cents) {
 double Money::roundCents(double dvalue) {
 	int roundVal = ((int)(dvalue * 1000)) % 10;
 	if (roundVal >= 5) {
-		dvalue += 0.01;
+		dvalue = ((int)(dvalue * 100)) / 100.0 + 0.01;
 	}
 	else if (roundVal <= -5) {
-		dvalue -= 0.01;
+		dvalue = ((int)(dvalue * 100)) / 100.0 - 0.01;
 	}
 	return dvalue;
 }
@@ -83,8 +83,9 @@ int main() {
 	double counter = -2.00;
 	while(counter < 2.00) {
 		Money money(counter);
-		cout << setprecision(5) << "Counter: " << counter
-			<< " | Money: " << money << endl;
+		cout << setprecision(3) << "Counter: " << counter
+			<< " | Money: " << money
+			<< " | _value: " << money.getValue() << endl;
 		counter += 0.008;
 	}
 	return 0;
