@@ -4,6 +4,7 @@
 
 class Money {
 friend bool operator==(const Money&, const Money&);
+friend bool operator<(const Money&, const Money&);
 public:
 	Money();
 	Money(const int, const int);
@@ -17,4 +18,7 @@ private:
 };
 std::ostream& operator<<(std::ostream&, const Money&);
 bool operator!=(const Money&, const Money&);
+bool operator<=(const Money&, const Money&);
+bool operator>(const Money&, const Money&);
+bool operator>=(const Money&, const Money&);
 #endif

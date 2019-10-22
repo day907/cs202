@@ -7,6 +7,8 @@ using std::endl;
 using std::setprecision;
 using std::fixed;
 
+//Money constructors
+//Default constructor sets _value to zero
 Money::Money() : _value(0) {};
 Money::Money(const int dollars, const int cents) :
 	_value(dollars + ((double)roundCents(cents))/100)
@@ -18,6 +20,8 @@ Money::Money(const double dvalue) :
 //Tried to make the rounding functions for construction
 //pretty robust to make dealing with Money objects
 //after construction easier.
+//
+//Rounds the cents integer used in two int argument constructor
 int Money::roundCents(int cents) {
 
 	while (abs(cents) >= 100) {
@@ -33,7 +37,8 @@ int Money::roundCents(int cents) {
 	}
 	return cents;
 }
-
+//Rounds double argument constructor to nearest hundredths
+//All the int casting seemed like the easiest way to truncate?
 double Money::roundCents(double dvalue) {
 	int roundVal = ((int)(dvalue * 1000)) % 10;
 	if (roundVal >= 5) {
@@ -45,6 +50,7 @@ double Money::roundCents(double dvalue) {
 	return dvalue;
 }
 
+//Get/set value functions
 double Money::getValue() const {
 	return _value;
 }
@@ -53,12 +59,29 @@ void Money::setValue(double value) {
 	return;
 }
 
+//Operator overloads
+//Boolean operators
+//== and > are friend functions, the rest are reliant
+//on using == and <
 bool operator==(const Money& mon1, const Money& mon2) {
 	return (mon1._value == mon2._value);
 }
 bool operator!=(const Money& mon1, const Money& mon2) {
 	return (!(mon1 == mon2));
 }
+bool operator<(const Money& mon1, const Money& mon2) {
+	return (mon1._value < mon2._value);
+}
+bool operator<=(const Money& mon1, const Money& mon2) {
+	return (mon1 < mon2 || mon1 == mon2);
+}
+bool operator>(const Money& mon1, const Money& mon2) {
+	return !(mon1 < mon2);
+}
+bool operator>=(const Money& mon1, const Money& mon2) {
+	return (!(mon1 < mon2) || mon1 == mon2);
+}
+
 
 //Formats Money _value into appropriate form and inserts to ostream
 //This works, but I'm not sure how using iomanip will affect test functions.
@@ -80,13 +103,15 @@ int main() {
 	//	money1.setValue(money1.getValue() + 0.01);
 	//	cout << money1 << endl;
 	//}
-	double counter = -2.00;
-	while(counter < 2.00) {
-		Money money(counter);
-		cout << setprecision(3) << "Counter: " << counter
-			<< " | Money: " << money
-			<< " | _value: " << money.getValue() << endl;
-		counter += 0.008;
-	}
+	//double counter = -2.00;
+	//while(counter < 2.00) {
+	//	Money money(counter);
+	//	cout << setprecision(3) << "Counter: " << counter
+	//		<< " | Money: " << money
+	//		<< " | _value: " << money.getValue() << endl;
+	//	counter += 0.008;
+	//}
+	//Money mon1(24.92), mon2(24.92);
+	//cout << (mon1 != mon2);
 	return 0;
 }
