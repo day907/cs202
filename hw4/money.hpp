@@ -8,12 +8,12 @@ public:
 	Money();
 	Money(const int, const int);
 	Money(const double);
-	int getValue() const;
-	void setValue(int);
+	double getValue() const;
+	void setValue(double);
 private:
-	int roundCents(double);
+	double roundCents(double);
 	int roundCents(int);
-	int _value;
+	double _value;
 };
 std::ostream& operator<<(std::ostream&, const Money&);
 bool operator!=(const Money&, const Money&);
