@@ -82,6 +82,40 @@ bool operator>=(const Money& mon1, const Money& mon2) {
 	return (!(mon1 < mon2) || mon1 == mon2);
 }
 
+//Arithmetic operators
+//Add Money to an existing Money object (+=)
+	//TODO
+//Subtract Money from an existing Money object (-=)
+	//TODO
+//Add two Money objects
+Money operator+(const Money& mon1, const Money& mon2) {
+	Money newMon(mon1.getValue() + mon2.getValue());
+	return newMon;
+}
+//Subtract two Money objects
+Money operator-(const Money& mon1, const Money& mon2) {
+	Money newMon(mon1.getValue() - mon2.getValue());
+	return newMon;
+}
+//Multiply a double times a Money object
+Money operator*(const double mon1, const Money& mon2) {
+	Money newMon(mon1 * mon2.getValue());
+	return newMon;
+}
+//Multiply a Money object times a double(*)
+Money operator*(const Money& mon1, const double mon2) {
+	Money newMon(mon1.getValue() * mon2);
+	return newMon;
+}
+//Multiply a Money object times a double (*=)
+	//TODO
+//Divide a Money object by a double (/)
+Money operator/(const Money& mon1, const double mon2) {
+	Money newMon(mon1.getValue() / mon2);
+	return newMon;
+}
+//Divide a Money object by a double (/=)
+	//TODO
 
 //Formats Money _value into appropriate form and inserts to ostream
 //This works, but I'm not sure how using iomanip will affect test functions.

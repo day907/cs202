@@ -21,4 +21,8 @@ bool operator!=(const Money&, const Money&);
 bool operator<=(const Money&, const Money&);
 bool operator>(const Money&, const Money&);
 bool operator>=(const Money&, const Money&);
+Money operator+(const Money&, const Money&);
+Money operator-(const Money&, const Money&);
+Money operator*(const Money&, const double);
+Money operator/(const Money&, const double);
 #endif
