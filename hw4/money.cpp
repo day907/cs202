@@ -74,7 +74,7 @@ double Money::roundCents(double dvalue) {
 double Money::getValue() const {
 	return _value;
 }
-void Money::setValue(double value) {
+void Money::setValue(const double value) {
 	_value = value;
 	return;
 }

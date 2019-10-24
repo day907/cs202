@@ -18,7 +18,7 @@ public:
 	Money(const int, const int);
 	Money(const double);
 	double getValue() const;
-	void setValue(double);
+	void setValue(const double);
 	Money& operator+=(const Money& rhs);
 	Money& operator-=(const Money& rhs);
 	Money& operator*=(const double rhs);
