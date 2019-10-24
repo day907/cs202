@@ -84,9 +84,15 @@ bool operator>=(const Money& mon1, const Money& mon2) {
 
 //Arithmetic operators
 //Add Money to an existing Money object (+=)
-	//TODO
+	//canonical
+Money& Money::operator+=(const Money& rhs) {
+	return *this = *this + rhs;
+}
 //Subtract Money from an existing Money object (-=)
-	//TODO
+	//canonical
+Money& Money::operator-=(const Money& rhs) {
+	return *this = *this - rhs;
+}
 //Add two Money objects
 Money operator+(const Money& mon1, const Money& mon2) {
 	Money newMon(mon1.getValue() + mon2.getValue());
@@ -108,14 +114,20 @@ Money operator*(const Money& mon1, const double mon2) {
 	return newMon;
 }
 //Multiply a Money object times a double (*=)
-	//TODO
+	//canonical
+Money& Money::operator*=(const double rhs) {
+	return *this = *this * rhs;
+}
 //Divide a Money object by a double (/)
 Money operator/(const Money& mon1, const double mon2) {
 	Money newMon(mon1.getValue() / mon2);
 	return newMon;
 }
 //Divide a Money object by a double (/=)
-	//TODO
+	//canonical
+Money& Money::operator/=(const double rhs) {
+	return *this = *this / rhs;
+}
 
 //Formats Money _value into appropriate form and inserts to ostream
 //This works, but I'm not sure how using iomanip will affect test functions.
@@ -129,23 +141,4 @@ ostream& operator<<(ostream& ost, const Money& mon) {
 		ost << "-$" << abs(mon.getValue());
 	}
 	return ost;
-}
-
-int main() {
-	//Money money1(-2, -2456);
-	//while (money1.getValue() <= 2) {
-	//	money1.setValue(money1.getValue() + 0.01);
-	//	cout << money1 << endl;
-	//}
-	//double counter = -2.00;
-	//while(counter < 2.00) {
-	//	Money money(counter);
-	//	cout << setprecision(3) << "Counter: " << counter
-	//		<< " | Money: " << money
-	//		<< " | _value: " << money.getValue() << endl;
-	//	counter += 0.008;
-	//}
-	//Money mon1(24.92), mon2(24.92);
-	//cout << (mon1 != mon2);
-	return 0;
 }

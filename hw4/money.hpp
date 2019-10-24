@@ -11,6 +11,10 @@ public:
 	Money(const double);
 	double getValue() const;
 	void setValue(double);
+	Money& operator+=(const Money& rhs);
+	Money& operator-=(const Money& rhs);
+	Money& operator*=(const double rhs);
+	Money& operator/=(const double rhs);
 private:
 	double roundCents(double);
 	int roundCents(int);
@@ -23,6 +27,7 @@ bool operator>(const Money&, const Money&);
 bool operator>=(const Money&, const Money&);
 Money operator+(const Money&, const Money&);
 Money operator-(const Money&, const Money&);
+Money operator*(const double, const Money&);
 Money operator*(const Money&, const double);
 Money operator/(const Money&, const double);
 #endif
