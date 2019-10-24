@@ -76,7 +76,7 @@ bool operator<=(const Money& mon1, const Money& mon2) {
 	return (mon1 < mon2 || mon1 == mon2);
 }
 bool operator>(const Money& mon1, const Money& mon2) {
-	return !(mon1 < mon2);
+	return !(mon1 <= mon2);
 }
 bool operator>=(const Money& mon1, const Money& mon2) {
 	return (!(mon1 < mon2) || mon1 == mon2);
