@@ -50,39 +50,6 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 
-//Commented out for use later in derived classes
-//
-//void Box::print(ostream& os) const {
-//	//Loop to print all boxes
-//	//loops for each unit of height
-//	for (int j = 0; j < _height; j++) {
-//
-//		//loops for each unit of width
-//		for (int i = 0; i < _width; i++) {
-//			//Prints checkered box
-//			if (_layout == CHECKERED) {
-//				if ((i + j) % 2 == 0) {
-//					os << 'x';
-//				}
-//				else {
-//					os << ' ';
-//				}
-//				continue;
-//			}
-//
-//			//Prints filled or hollow box
-//			if (_layout == FILLED || i == 0 || i == _width - 1 || j == 0 || j == _height - 1) {
-//				os << 'x';
-//			}
-//			else {
-//				os << ' ';
-//			}
-//		}
-//		os << "\n";
-//	}
-//	return;
-//}
-
 ostream& operator<<(ostream& os, const Box& theBox) {
 	theBox.print(os);
 	return os;
@@ -114,19 +81,17 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 
 //FILLED BOX DERIVED CLASS
 //
-//Constructors
-//FilledBox::FilledBox() : Box() {};
-//FilledBox::FilledBox(const int& width, const int& height)
-//	: Box(width, height)
-//{};
-
 //overrides to virtual function in Box class
 string FilledBox::type() const {
 	return "Filled";
 }
-
-void FilledBox::print(ostream&) const {
-
+void FilledBox::print(ostream& os) const {
+	for (int y = 0; y < getHeight(); y++) {
+		for (int x = 0; x < getWidth(); x++) {
+			os << 'x';
+		}
+		os << '\n';
+	}
 	return;
 }
 
@@ -134,18 +99,23 @@ void FilledBox::print(ostream&) const {
 
 //HOLLOW BOX DERIVED CLASS
 //
-//Constructors
-//HollowBox::HollowBox() : Box() {};
-//HollowBox::HollowBox(const int& width, const int& height)
-//	: Box(width, height)
-//{};
-
 //overrides to virtual function in Box class
 string HollowBox::type() const {
 	return "Hollow";
 }
-void HollowBox::print(ostream&) const {
+void HollowBox::print(ostream& os) const {
 
+	for (int y = 0; y < getHeight(); y++) {
+		for (int x = 0; x < getWidth(); x++) {
+			if (y == 0 || y == getHeight() - 1 || x == 0 || x == getWidth() - 1) {
+				os << 'x';
+			}
+			else {
+				os << ' ';
+			}
+		}
+		os << '\n';
+	}
 	return;
 }
 
@@ -153,17 +123,25 @@ void HollowBox::print(ostream&) const {
 
 //CHECKERED BOX DERIVED CLASS
 //
-//Constructors
-//CheckeredBox::CheckeredBox() : Box() {};
-//CheckeredBox::CheckeredBox(const int& width, const int& height)
-//	: Box(width, height)
-//{}; 
-
 //overrides to virtual function in Box class
 string CheckeredBox::type() const {
 	return "Checkered";
 }
-void CheckeredBox::print(ostream&) const {
-	
+void CheckeredBox::print(ostream& os) const {
+	//loops for each unit of height
+	for (int j = 0; j < getHeight(); j++) {
+
+		//loops for each unit of width
+		for (int i = 0; i < getWidth(); i++) {
+			if ((i + j) % 2 == 0) {
+				os << 'x';
+			}
+			else {
+				os << ' ';
+			}
+			continue;
+		}
+		os << '\n';
+	}
 	return;
 }
