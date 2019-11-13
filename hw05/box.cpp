@@ -105,6 +105,9 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 	case 'c':
 	case 'C':
 		return std::make_unique<CheckeredBox>();
+
+	default:
+		return std::make_unique<FilledBox>();
 	}
 }
 
@@ -117,9 +120,14 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 //	: Box(width, height)
 //{};
 
-//override to virtual function in Box class
+//overrides to virtual function in Box class
 string FilledBox::type() const {
 	return "Filled";
+}
+
+void FilledBox::print(ostream&) const {
+
+	return;
 }
 
 
@@ -132,9 +140,13 @@ string FilledBox::type() const {
 //	: Box(width, height)
 //{};
 
-//override to virtual function in Box class
+//overrides to virtual function in Box class
 string HollowBox::type() const {
 	return "Hollow";
+}
+void HollowBox::print(ostream&) const {
+
+	return;
 }
 
 
@@ -147,7 +159,11 @@ string HollowBox::type() const {
 //	: Box(width, height)
 //{}; 
 
-//override to virtual function in Box class
+//overrides to virtual function in Box class
 string CheckeredBox::type() const {
 	return "Checkered";
+}
+void CheckeredBox::print(ostream&) const {
+	
+	return;
 }

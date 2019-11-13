@@ -39,6 +39,7 @@ public:
 	//FilledBox();
 	//FilledBox(const int&, const int&);
 	string type() const override;
+	void print(ostream&) const override;
 };
 
 class HollowBox : public Box {
@@ -47,6 +48,7 @@ public:
 	//HollowBox();
 	//HollowBox(const int&, const int&);
 	string type() const override;
+	void print(ostream&) const override;
 };
 
 class CheckeredBox : public Box {
@@ -55,6 +57,7 @@ public:
 	//CheckeredBox();
 	//CheckeredBox(const int&, const int&);
 	string type() const override;
+	void print(ostream&) const override;
 };
 
 unique_ptr<Box> boxFactory(char c, int w, int h);
