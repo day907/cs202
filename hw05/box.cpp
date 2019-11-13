@@ -11,6 +11,8 @@
 using std::ostream;
 #include <string>
 using std::string;
+#include <memory>
+using std::unique_ptr;
 
 int Box::_currentboxes = 0;
 
@@ -90,6 +92,21 @@ int Box::howMany() {
 	return _currentboxes;
 }
 
+unique_ptr<Box> boxFactory(char c, int w, int h) {
+	switch (c) {
+	case 'f':
+	case 'F':
+		return std::make_unique<FilledBox>();
+
+	case 'h':
+	case 'H':
+		return std::make_unique<HollowBox>();
+
+	case 'c':
+	case 'C':
+		return std::make_unique<CheckeredBox>();
+	}
+}
 
 
 //FILLED BOX DERIVED CLASS
@@ -104,7 +121,6 @@ FilledBox::FilledBox(const int& width, const int& height)
 string FilledBox::type() const {
 	return "Filled";
 }
-
 
 
 

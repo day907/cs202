@@ -11,6 +11,8 @@
 using std::ostream;
 #include <string>
 using std::string;
+#include <memory>
+using std::unique_ptr;
 
 class Box {
 public:
@@ -51,6 +53,8 @@ public:
 	CheckeredBox(const int&, const int&);
 	string type() const override;
 };
+
+unique_ptr<Box> boxFactory(char c, int w, int h);
 
 ostream& operator<<(ostream&, const Box&);
 
