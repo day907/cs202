@@ -1,10 +1,10 @@
 //CS202
 //Jordan Day
-//09/26/19
-//HW01
+//11/12/19
+//HW05
 //"box.cpp"
 //Contains constructors and member functions for class Box
-//for use in HW01
+//for use in HW05
 
 #include "box.hpp"
 #include <iostream>
@@ -78,7 +78,7 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 	}
 }
 
-//<< overload for box class
+//<< overload for Box class
 ostream& operator<<(ostream& os, const Box& theBox) {
 	theBox.print(os);
 	return os;

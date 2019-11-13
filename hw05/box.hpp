@@ -1,9 +1,9 @@
 //CS202
 //Jordan Day
-//09/26/19
-//HW01
+//11/12/19
+//HW05
 //"box.hpp"
-//Header file for HW01, contains class Box and derived class declarations
+//Header file for HW05, contains class Box and derived class declarations
 
 #ifndef BOX_HPP
 #define BOX_HPP
