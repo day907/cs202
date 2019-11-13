@@ -3,7 +3,7 @@
 //09/26/19
 //HW01
 //"box.hpp"
-//Header file for HW01, contains class Box declarations
+//Header file for HW01, contains class Box and derived class declarations
 
 #ifndef BOX_HPP
 #define BOX_HPP
@@ -19,7 +19,7 @@ public:
 	Box();
 	Box(const int&, const int&);
 	Box(const Box&);
-	~Box();
+	virtual ~Box();
 	int getHeight() const;
 	void setHeight(int);
 	int getWidth() const;
@@ -33,11 +33,11 @@ private:
 	static int _currentboxes;
 };
 
+//Derived classes
 class FilledBox : public Box {
 public:
 	using Box::Box;
-	//FilledBox();
-	//FilledBox(const int&, const int&);
+	~FilledBox();
 	string type() const override;
 	void print(ostream&) const override;
 };
@@ -45,8 +45,7 @@ public:
 class HollowBox : public Box {
 public:
 	using Box::Box;
-	//HollowBox();
-	//HollowBox(const int&, const int&);
+	~HollowBox();
 	string type() const override;
 	void print(ostream&) const override;
 };
@@ -54,14 +53,13 @@ public:
 class CheckeredBox : public Box {
 public:
 	using Box::Box;
-	//CheckeredBox();
-	//CheckeredBox(const int&, const int&);
+	~CheckeredBox();
 	string type() const override;
 	void print(ostream&) const override;
 };
 
-unique_ptr<Box> boxFactory(char c, int w, int h);
 
+unique_ptr<Box> boxFactory(char c, int w, int h);
 ostream& operator<<(ostream&, const Box&);
 
 #endif

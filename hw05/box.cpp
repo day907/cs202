@@ -50,38 +50,44 @@ void Box::setWidth(int width) {
 	_width = width;
 }
 
-ostream& operator<<(ostream& os, const Box& theBox) {
-	theBox.print(os);
-	return os;
-}
 
 int Box::howMany() {
 	return _currentboxes;
 }
 
+
+
+//Box Factory, takes param c to determine what type of box to make,
+//ints w and h assign box's width and height.
 unique_ptr<Box> boxFactory(char c, int w, int h) {
 	switch (c) {
 	case 'f':
 	case 'F':
-		return std::make_unique<FilledBox>();
+		return std::make_unique<FilledBox>(w,h);
 
 	case 'h':
 	case 'H':
-		return std::make_unique<HollowBox>();
+		return std::make_unique<HollowBox>(w,h);
 
 	case 'c':
 	case 'C':
-		return std::make_unique<CheckeredBox>();
+		return std::make_unique<CheckeredBox>(w,h);
 
 	default:
-		return std::make_unique<FilledBox>();
+		return std::make_unique<FilledBox>(w,h);
 	}
 }
 
+//<< overload for box class
+ostream& operator<<(ostream& os, const Box& theBox) {
+	theBox.print(os);
+	return os;
+}
 
 //FILLED BOX DERIVED CLASS
 //
-//overrides to virtual function in Box class
+//overrides to virtual functions in Box class
+FilledBox::~FilledBox() {};
 string FilledBox::type() const {
 	return "Filled";
 }
@@ -99,7 +105,8 @@ void FilledBox::print(ostream& os) const {
 
 //HOLLOW BOX DERIVED CLASS
 //
-//overrides to virtual function in Box class
+//overrides to virtual functions in Box class
+HollowBox::~HollowBox() {};
 string HollowBox::type() const {
 	return "Hollow";
 }
@@ -123,7 +130,8 @@ void HollowBox::print(ostream& os) const {
 
 //CHECKERED BOX DERIVED CLASS
 //
-//overrides to virtual function in Box class
+//overrides to virtual functions in Box class
+CheckeredBox::~CheckeredBox() {};
 string CheckeredBox::type() const {
 	return "Checkered";
 }
