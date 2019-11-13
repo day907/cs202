@@ -1,4 +1,3 @@
-
 //CS202
 //Jordan Day
 //09/26/19
@@ -13,31 +12,35 @@ using std::ostream;
 #include <string>
 using std::string;
 
-//To add or remove a layout type to enum layout,
-//modifications are needed in Box::type(),
-//and Box::print(). If removing FILLED layout,
-//modifications needed in Box() default constructor,
-//and Box(const int&, const int&) constructor.
 class Box {
 public:
-	enum layout { FILLED, HOLLOW, CHECKERED };
 	Box();
 	Box(const int&, const int&);
-	Box(const int&, const int&, const layout&);
 	Box(const Box&);
 	~Box();
-	void print(ostream&) const;
-	string type() const;
 	int getHeight() const;
 	void setHeight(int);
 	int getWidth() const;
 	void setWidth(int);
 	static int howMany();
+	virtual void print(ostream&) const = 0;
+	virtual string type() const = 0;
 private:
 	int _height;
 	int _width;
-	layout _layout;
 	static int _currentboxes;
+};
+
+class FilledBox : public Box {
+	FilledBox();
+};
+
+class HollowBox : public Box {
+	HollowBox();
+};
+
+class CheckeredBox : public Box {
+	CheckeredBox();
 };
 
 ostream& operator<<(ostream&, const Box&);
