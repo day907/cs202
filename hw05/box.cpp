@@ -112,10 +112,10 @@ unique_ptr<Box> boxFactory(char c, int w, int h) {
 //FILLED BOX DERIVED CLASS
 //
 //Constructors
-FilledBox::FilledBox() : Box() {};
-FilledBox::FilledBox(const int& width, const int& height)
-	: Box(width, height)
-{};
+//FilledBox::FilledBox() : Box() {};
+//FilledBox::FilledBox(const int& width, const int& height)
+//	: Box(width, height)
+//{};
 
 //override to virtual function in Box class
 string FilledBox::type() const {
@@ -127,10 +127,10 @@ string FilledBox::type() const {
 //HOLLOW BOX DERIVED CLASS
 //
 //Constructors
-HollowBox::HollowBox() : Box() {};
-HollowBox::HollowBox(const int& width, const int& height)
-	: Box(width, height)
-{};
+//HollowBox::HollowBox() : Box() {};
+//HollowBox::HollowBox(const int& width, const int& height)
+//	: Box(width, height)
+//{};
 
 //override to virtual function in Box class
 string HollowBox::type() const {
@@ -142,10 +142,10 @@ string HollowBox::type() const {
 //CHECKERED BOX DERIVED CLASS
 //
 //Constructors
-CheckeredBox::CheckeredBox() : Box() {};
-CheckeredBox::CheckeredBox(const int& width, const int& height)
-	: Box(width, height)
-{}; 
+//CheckeredBox::CheckeredBox() : Box() {};
+//CheckeredBox::CheckeredBox(const int& width, const int& height)
+//	: Box(width, height)
+//{}; 
 
 //override to virtual function in Box class
 string CheckeredBox::type() const {

@@ -35,22 +35,25 @@ private:
 
 class FilledBox : public Box {
 public:
-	FilledBox();
-	FilledBox(const int&, const int&);
+	using Box::Box;
+	//FilledBox();
+	//FilledBox(const int&, const int&);
 	string type() const override;
 };
 
 class HollowBox : public Box {
 public:
-	HollowBox();
-	HollowBox(const int&, const int&);
+	using Box::Box;
+	//HollowBox();
+	//HollowBox(const int&, const int&);
 	string type() const override;
 };
 
 class CheckeredBox : public Box {
 public:
-	CheckeredBox();
-	CheckeredBox(const int&, const int&);
+	using Box::Box;
+	//CheckeredBox();
+	//CheckeredBox(const int&, const int&);
 	string type() const override;
 };
 
