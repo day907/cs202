@@ -90,21 +90,48 @@ int Box::howMany() {
 	return _currentboxes;
 }
 
+
+
 //FILLED BOX DERIVED CLASS
+//
+//Constructors
 FilledBox::FilledBox() : Box() {};
 FilledBox::FilledBox(const int& width, const int& height)
 	: Box(width, height)
 {};
 
+//override to virtual function in Box class
+string FilledBox::type() const {
+	return "Filled";
+}
+
+
+
 
 //HOLLOW BOX DERIVED CLASS
+//
+//Constructors
 HollowBox::HollowBox() : Box() {};
 HollowBox::HollowBox(const int& width, const int& height)
 	: Box(width, height)
 {};
 
+//override to virtual function in Box class
+string HollowBox::type() const {
+	return "Hollow";
+}
+
+
+
 //CHECKERED BOX DERIVED CLASS
+//
+//Constructors
 CheckeredBox::CheckeredBox() : Box() {};
 CheckeredBox::CheckeredBox(const int& width, const int& height)
 	: Box(width, height)
-{};
+{}; 
+
+//override to virtual function in Box class
+string CheckeredBox::type() const {
+	return "Checkered";
+}

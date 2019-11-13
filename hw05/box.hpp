@@ -32,18 +32,24 @@ private:
 };
 
 class FilledBox : public Box {
+public:
 	FilledBox();
 	FilledBox(const int&, const int&);
+	string type() const override;
 };
 
 class HollowBox : public Box {
+public:
 	HollowBox();
 	HollowBox(const int&, const int&);
+	string type() const override;
 };
 
 class CheckeredBox : public Box {
+public:
 	CheckeredBox();
 	CheckeredBox(const int&, const int&);
+	string type() const override;
 };
 
 ostream& operator<<(ostream&, const Box&);
