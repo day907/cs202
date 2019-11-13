@@ -33,14 +33,17 @@ private:
 
 class FilledBox : public Box {
 	FilledBox();
+	FilledBox(const int&, const int&);
 };
 
 class HollowBox : public Box {
 	HollowBox();
+	HollowBox(const int&, const int&);
 };
 
 class CheckeredBox : public Box {
 	CheckeredBox();
+	CheckeredBox(const int&, const int&);
 };
 
 ostream& operator<<(ostream&, const Box&);

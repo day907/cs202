@@ -89,3 +89,22 @@ ostream& operator<<(ostream& os, const Box& theBox) {
 int Box::howMany() {
 	return _currentboxes;
 }
+
+//FILLED BOX DERIVED CLASS
+FilledBox::FilledBox() : Box() {};
+FilledBox::FilledBox(const int& width, const int& height)
+	: Box(width, height)
+{};
+
+
+//HOLLOW BOX DERIVED CLASS
+HollowBox::HollowBox() : Box() {};
+HollowBox::HollowBox(const int& width, const int& height)
+	: Box(width, height)
+{};
+
+//CHECKERED BOX DERIVED CLASS
+CheckeredBox::CheckeredBox() : Box() {};
+CheckeredBox::CheckeredBox(const int& width, const int& height)
+	: Box(width, height)
+{};
