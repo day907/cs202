@@ -29,6 +29,8 @@ public:
 	RAIIPtr(Ptrtype*);
 	~RAIIPtr();
 	RAIIPtr(const RAIIPtr&) = delete;
+	Ptrtype& operator*();
+	Ptrtype* operator->();
 private:
 	Ptrtype* _ptr;
 };
@@ -44,14 +46,14 @@ RAIIPtr<Ptrtype>::~RAIIPtr() {};
 
 //RAIIPtr operator overloads
 template <typename Ptrtype>
-Ptrtype operator*(RAIIPtr<Ptrtype>& ptr) {
+Ptrtype& RAIIPtr<Ptrtype>::operator*() {
 	return *_ptr;
 }
 
-//template <typename Ptrtype>
-//Ptrtype* operator->() {
-//	return 
-//}
+template <typename Ptrtype>
+Ptrtype* RAIIPtr<Ptrtype>::operator->() {
+	return _ptr;
+}
 
 #endif // !TEMPLATE_HPP
 
