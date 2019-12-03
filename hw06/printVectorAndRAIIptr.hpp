@@ -42,7 +42,9 @@ template <typename Ptrtype>
 RAIIPtr<Ptrtype>::RAIIPtr(Ptrtype* ptr) :  _ptr(ptr) {};
 
 template <typename Ptrtype>
-RAIIPtr<Ptrtype>::~RAIIPtr() {};
+RAIIPtr<Ptrtype>::~RAIIPtr() {
+	delete _ptr;
+};
 
 //RAIIPtr operator overloads
 template <typename Ptrtype>
