@@ -1,4 +1,8 @@
-#pragma once
+//CS202
+//Jordan Day
+//12/03/19
+//HW06
+
 
 #ifndef TEMPLATE_HPP
 #define TEMPLATE_HPP
@@ -19,6 +23,7 @@ void printVector(std::ostream& os, const std::vector<T> vec) {
 	}
 	return;
 }
+
 
 
 //	RAIIPtr
@@ -58,4 +63,3 @@ Ptrtype* RAIIPtr<Ptrtype>::operator->() {
 }
 
 #endif // !TEMPLATE_HPP
-
